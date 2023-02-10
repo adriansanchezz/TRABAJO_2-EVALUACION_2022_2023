@@ -165,4 +165,8 @@ function Casillas(resultado)
     }
 }
 
+function a()
+{
+    let a = 0;
+}
 window.onload = botonJugar;
