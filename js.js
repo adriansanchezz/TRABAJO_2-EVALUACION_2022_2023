@@ -165,4 +165,10 @@ function Casillas(resultado)
     }
 }
 
+function a ()
+{
+    let pasaalgo; 
+    pasaalgo = 0;
+}
+
 window.onload = botonJugar;
