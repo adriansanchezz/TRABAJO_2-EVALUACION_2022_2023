@@ -36,12 +36,22 @@ function generarTabla(posIn)
         for(let u = 0; u<10; u++)
         {
             let td = document.createElement("td");
-            td.style = "background-color: blue;";
+            td.style = "background-image: url('../imagenes/eps8woq9nh9z.png'); background-size: cover;";
             
             td.id = tr.id + u;
             if(td.id == posIn)
             {
-                td.style = "background-color:violet;";
+                td.style = "background-image: url('../imagenes/eps8woq9nh9z.png'); background-size: cover;";
+                let imagen = document.createElement("img");
+                imagen.src = "../imagenes/pj.png";
+                td.appendChild(imagen);
+
+            }
+            if(td.id == 99)
+            {
+                let imagen = document.createElement("img");
+                imagen.src = "../imagenes/tesoro.png";
+                td.appendChild(imagen);
             }
             tr.appendChild(td);
 
@@ -56,6 +66,8 @@ function generarTabla(posIn)
 
 function tirarDado()
 {
+    
+    let controlador = false;
     let div2 = document.createElement("div");
     document.body.appendChild(div2);
     let botonDado = document.createElement("button");
@@ -64,21 +76,27 @@ function tirarDado()
 
     botonDado.addEventListener("click", (event)=>{
         
-        let comprobarDado = document.getElementById("tiradaDado");
-        if(comprobarDado)
+        if(controlador == false)
         {
-            comprobarDado.remove();
+            controlador = true;
+            let comprobarDado = document.getElementById("tiradaDado");
+            if(comprobarDado)
+            {
+                comprobarDado.remove();
+            }
+            let resultado = Math.floor(Math.random() * 7);
+            while(resultado == 0)
+            {
+                resultado = Math.floor(Math.random() * 7);
+            }
+            let h1 = document.createElement("h1");
+            h1.textContent = resultado;
+            h1.id = "tiradaDado";
+            div2.appendChild(h1);
+            Casillas(resultado);
+            
         }
-        let resultado = Math.floor(Math.random() * 7);
-        while(resultado == 0)
-        {
-            resultado = Math.floor(Math.random() * 7);
-        }
-        let h1 = document.createElement("h1");
-        h1.textContent = resultado;
-        h1.id = "tiradaDado";
-        div2.appendChild(h1);
-        Casillas(resultado);
+        
     })
 
 }

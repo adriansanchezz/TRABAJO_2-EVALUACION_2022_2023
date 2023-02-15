@@ -5,4 +5,20 @@ table
 }
 body{
     display: block;
+    
+}
+
+td
+{
+    position: relative;
+    
+}
+
+img
+{
+    position: absolute;
+    width: 70px;
+    height: 65px;
+    top: 2px;
+    left: -1px;
 }
