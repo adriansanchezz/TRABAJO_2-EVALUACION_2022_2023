@@ -96,66 +96,54 @@ function Casillas(resultado)
             {
                 console.log(`${i+resultado}${j}`);
                 let casilla = document.getElementById(`${i+resultado}${j}`);
-                casilla.style = "background-color: red;"
-                casilla.addEventListener("click", (event)=>{
-                    console.log(casilla.id);
-                    generarTabla(casilla.id);
-                })
+                
                 let casilla2 = document.getElementById(`${i}${j+resultado}`);
-                casilla2.style = "background-color: red;"
-                casilla2.addEventListener("click", (event)=>{
-                    console.log(casilla2.id);
-                    generarTabla(casilla2.id);
-                })
+                
 
                 let casilla3 = document.getElementById(`${i-resultado}${j}`);
-                casilla3.style = "background-color: red;"
-                casilla3.addEventListener("click", (event)=>{
-                    console.log(casilla3.id);
-                    generarTabla(casilla3.id);
-                })
+                
                 let casilla4 = document.getElementById(`${i}${j-resultado}`);
-                casilla4.style = "background-color: red;"
-                casilla4.addEventListener("click", (event)=>{
-                    console.log(casilla4.id);
-                    generarTabla(casilla4.id);
-                })
+                
 
-                if(casilla == null)
+                if(casilla !== null)
                 {
-
+                    casilla.style = "background-color: red;"
+                    casilla.addEventListener("click", (event)=>{
+                        console.log(casilla.id);
+                        generarTabla(casilla.id);
+                    })
                 }
-                else
+                
+
+                if(casilla2 !== null)
                 {
-
+                    casilla2.style = "background-color: red;"
+                    casilla2.addEventListener("click", (event)=>{
+                        console.log(casilla2.id);
+                        generarTabla(casilla2.id);
+                    })
                 }
+                
 
-                if(casilla2 == null)
+                if(casilla3 !== null)
                 {
+                    casilla3.style = "background-color: red;"
+                    casilla3.addEventListener("click", (event)=>{
+                        console.log(casilla3.id);
+                        generarTabla(casilla3.id);
+                    })
+                }
+                
 
-                }
-                else
+                if(casilla4 !== null)
                 {
-                    
+                    casilla4.style = "background-color: red;"
+                    casilla4.addEventListener("click", (event)=>{
+                        console.log(casilla4.id);
+                        generarTabla(casilla4.id);
+                    })
                 }
-
-                if(casilla3 == null)
-                {
-
-                }
-                else
-                {
-                    
-                }
-
-                if(casilla4 == null)
-                {
-
-                }
-                else
-                {
-                    
-                }
+                
                 
             }
             
@@ -163,12 +151,6 @@ function Casillas(resultado)
             
         }
     }
-}
-
-function a ()
-{
-    let pasaalgo; 
-    pasaalgo = 0;
 }
 
 window.onload = botonJugar;
