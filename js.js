@@ -1,5 +1,10 @@
+let controlador = false;
+
+let controladorCajas = false;
+
 function botonJugar()
 {
+    
     let div1 = document.createElement("div");
     div1.id = "DIV1";
     let boton = document.createElement("button");
@@ -9,15 +14,27 @@ function botonJugar()
 
     tirarDado();
     boton.addEventListener("click", (event)=>{
+        controladorCajas = false;
         let var1 = 0;
         let var2 = 0;
         generarTabla(`${var1}${var2}`);
+        
+        document.body.style = "background-image: url('../imagenes/fondo.jpg'); background-size: cover;"
     })
 }
 
 function generarTabla(posIn)
 {
-    
+    let caja1 = Math.floor(Math.random() * 99);
+    let caja2 = Math.floor(Math.random() * 99);
+    let caja3 = Math.floor(Math.random() * 99);
+    while(caja1 == 00 || caja2 == 00 || caja3 == 00)
+    {
+        caja1 = Math.floor(Math.random() * 99);
+        caja2 = Math.floor(Math.random() * 99);
+        caja3 = Math.floor(Math.random() * 99);
+    }
+
     let tablero = document.getElementById("tablero");
     if(tablero)
     {
@@ -44,6 +61,7 @@ function generarTabla(posIn)
                 td.style = "background-image: url('../imagenes/eps8woq9nh9z.png'); background-size: cover;";
                 let imagen = document.createElement("img");
                 imagen.src = "../imagenes/pj.png";
+                imagen.className = "Guts";
                 td.appendChild(imagen);
 
             }
@@ -53,6 +71,17 @@ function generarTabla(posIn)
                 imagen.src = "../imagenes/tesoro.png";
                 td.appendChild(imagen);
             }
+            if(td.id == caja1 || td.id == caja2 || td.id == caja3)
+            {
+                if(controladorCajas == false)
+                {
+                    
+                    let imagen = document.createElement("img");
+                    imagen.src = "../imagenes/box.png";
+                    td.appendChild(imagen);
+                }
+                
+            }
             tr.appendChild(td);
 
             
@@ -60,14 +89,14 @@ function generarTabla(posIn)
         table.appendChild(tr);
     }
     div1.appendChild(table);
-    
+    controladorCajas = true;
     
 }
 
 function tirarDado()
 {
     
-    let controlador = false;
+    
     let div2 = document.createElement("div");
     document.body.appendChild(div2);
     let botonDado = document.createElement("button");
@@ -96,6 +125,7 @@ function tirarDado()
             Casillas(resultado);
             
         }
+        
         
     })
 
@@ -129,6 +159,7 @@ function Casillas(resultado)
                     casilla.addEventListener("click", (event)=>{
                         console.log(casilla.id);
                         generarTabla(casilla.id);
+                        controlador = false;
                     })
                 }
                 
@@ -139,6 +170,7 @@ function Casillas(resultado)
                     casilla2.addEventListener("click", (event)=>{
                         console.log(casilla2.id);
                         generarTabla(casilla2.id);
+                        controlador = false;
                     })
                 }
                 
@@ -149,6 +181,7 @@ function Casillas(resultado)
                     casilla3.addEventListener("click", (event)=>{
                         console.log(casilla3.id);
                         generarTabla(casilla3.id);
+                        controlador = false;
                     })
                 }
                 
@@ -159,6 +192,7 @@ function Casillas(resultado)
                     casilla4.addEventListener("click", (event)=>{
                         console.log(casilla4.id);
                         generarTabla(casilla4.id);
+                        controlador = false;
                     })
                 }
                 
