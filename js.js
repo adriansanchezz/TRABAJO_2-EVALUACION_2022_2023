@@ -16,6 +16,15 @@ function botonJugar()
 
     tirarDado();
     boton.addEventListener("click", (event)=>{
+        boton.style = "display: none;"
+        if(controladorCajas == false)
+        {
+            for(let i = 0; i < cajas.length; i++)
+            {
+                delete(cajas[i]);
+            }
+        }
+        
         controladorCajas = false;
         let var1 = 0;
         let var2 = 0;
