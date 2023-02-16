@@ -2,6 +2,8 @@ let controlador = false;
 
 let controladorCajas = false;
 
+let cajas = [];
+
 function botonJugar()
 {
     
@@ -75,13 +77,16 @@ function generarTabla(posIn)
             {
                 if(controladorCajas == false)
                 {
-                    
                     let imagen = document.createElement("img");
                     imagen.src = "../imagenes/box.png";
                     td.appendChild(imagen);
+                    cajas.push(td);
+                    
                 }
                 
             }
+            
+            
             tr.appendChild(td);
 
             
@@ -89,9 +94,36 @@ function generarTabla(posIn)
         table.appendChild(tr);
     }
     div1.appendChild(table);
+    
     controladorCajas = true;
+    if(controladorCajas == true)
+    {
+        saberCajas();
+    }
+    
+    
+    
+
+}
+
+
+function saberCajas()
+{
+    let casilla = document.getElementById(`${cajas[0].id}`);
+    let casilla2 = document.getElementById(`${cajas[1].id}`);
+    let casilla3 = document.getElementById(`${cajas[2].id}`);
+    let imagen = document.createElement("img");
+    imagen.src = "../imagenes/box.png";
+    let imagen2 = document.createElement("img");
+    imagen2.src = "../imagenes/box.png";
+    let imagen3 = document.createElement("img");
+    imagen3.src = "../imagenes/box.png";
+    casilla.appendChild(imagen);
+    casilla2.appendChild(imagen2);
+    casilla3.appendChild(imagen3);
     
 }
+
 
 function tirarDado()
 {
@@ -160,6 +192,8 @@ function Casillas(resultado)
                         console.log(casilla.id);
                         generarTabla(casilla.id);
                         controlador = false;
+
+                        
                     })
                 }
                 
@@ -171,6 +205,8 @@ function Casillas(resultado)
                         console.log(casilla2.id);
                         generarTabla(casilla2.id);
                         controlador = false;
+
+                        
                     })
                 }
                 
@@ -182,6 +218,8 @@ function Casillas(resultado)
                         console.log(casilla3.id);
                         generarTabla(casilla3.id);
                         controlador = false;
+
+                        
                     })
                 }
                 
@@ -193,6 +231,8 @@ function Casillas(resultado)
                         console.log(casilla4.id);
                         generarTabla(casilla4.id);
                         controlador = false;
+
+                        
                     })
                 }
                 
@@ -204,5 +244,8 @@ function Casillas(resultado)
         }
     }
 }
+
+
+
 
 window.onload = botonJugar;
