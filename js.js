@@ -1,3 +1,7 @@
+'use strict';
+
+
+
 let controlador = false;
 
 let controladorCajas = false;
@@ -39,7 +43,7 @@ function generarTabla(posIn)
     let caja1 = Math.floor(Math.random() * 99);
     let caja2 = Math.floor(Math.random() * 99);
     let caja3 = Math.floor(Math.random() * 99);
-    while(caja1 == 00 || caja2 == 00 || caja3 == 00)
+    while(caja1 == 0 || caja2 == 0 || caja3 == 0)
     {
         caja1 = Math.floor(Math.random() * 99);
         caja2 = Math.floor(Math.random() * 99);
@@ -104,11 +108,26 @@ function generarTabla(posIn)
     }
     div1.appendChild(table);
     
+    let casilla = document.getElementById(`${cajas[0].id}`);
+    let casilla2 = document.getElementById(`${cajas[1].id}`);
+    let casilla3 = document.getElementById(`${cajas[2].id}`);
+    
+
     controladorCajas = true;
     if(controladorCajas == true)
     {
         saberCajas();
+        if(posIn == cajas[0].id || posIn == cajas[1].id || posIn == cajas[2].id)
+        {
+            alert("ENHORABUENA");
+        }
     }
+    if(posIn == 99)
+    {
+        alert("ENHORABUENA");
+    }
+
+    
     
     
     
@@ -121,6 +140,7 @@ function saberCajas()
     let casilla = document.getElementById(`${cajas[0].id}`);
     let casilla2 = document.getElementById(`${cajas[1].id}`);
     let casilla3 = document.getElementById(`${cajas[2].id}`);
+    
     let imagen = document.createElement("img");
     imagen.src = "../imagenes/box.png";
     let imagen2 = document.createElement("img");
@@ -245,7 +265,11 @@ function Casillas(resultado)
                     })
                 }
                 
-                
+                if(casilla == null && casilla2 == null && casilla3 == null && casilla4==null)
+                {
+                    alert("Vuelve a tirar");
+                    controlador = false;
+                }
             }
             
             
