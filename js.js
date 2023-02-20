@@ -281,4 +281,4 @@ function Casillas(resultado)
 
 
 
-window.onload = botonJugar;
+// window.onload = botonJugar;

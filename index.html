@@ -2,13 +2,33 @@
 <html>
   <head>
     <title>Mi Página</title>
+    
     <link rel="stylesheet" type="text/css" href="style.css">
     <script type="text/javascript" src="js.js"></script>
-    
+    <script type="module" src="signUp.js"></script>
+    <script type="module" src="firebase.js"></script>
   </head>
   <body>
+    <div id="loginReg">
+      <form id="login-form">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control mb-3" placeholder="Email" required>
+        <label for="password">Password:</label>
+        <input type="password" class="form-control mb-3" placeholder="******" required>
+        <button type="submit">
+          Login
+        </button>
+      </form>
     
-    
-    
+      <form id="signup-form" action="index.html">
+        <label for="email">Email:</label>
+        <input id="signup-email" type="email" class="form-control mb-3" placeholder="Email" required>
+        <label for="password">Password:</label>
+        <input id="signup-password" type="password" class="form-control mb-3" placeholder="******" required>
+        <button type="submit">
+          Register
+        </button>
+      </form>
+    </div>
   </body>
 </html>
