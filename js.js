@@ -76,7 +76,7 @@ function generarTabla(posIn)
                 td.style = "background-image: url('../imagenes/eps8woq9nh9z.png'); background-size: cover;";
                 let imagen = document.createElement("img");
                 imagen.src = "../imagenes/pj.png";
-                imagen.className = "Guts";
+                imagen.className = "Gatsu";
                 td.appendChild(imagen);
 
             }
