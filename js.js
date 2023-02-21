@@ -10,11 +10,13 @@ let cajas = [];
 
 function botonJugar()
 {
-    
+    console.log("FUNCIONOOOOO");
     let div1 = document.createElement("div");
     div1.id = "DIV1";
     let boton = document.createElement("button");
+    boton.id = "botonJugar";
     boton.textContent = "JUGAR";
+    boton.disabled = true;
     document.body.appendChild(div1);
     div1.appendChild(boton);
 
@@ -161,6 +163,7 @@ function tirarDado()
     let div2 = document.createElement("div");
     document.body.appendChild(div2);
     let botonDado = document.createElement("button");
+    botonDado.style.visibility = "hidden"; 
     botonDado.textContent = "TIRAR DADO";
     div2.appendChild(botonDado);
 
@@ -281,4 +284,6 @@ function Casillas(resultado)
 
 
 
-// window.onload = botonJugar;
+window.onload = botonJugar;
+
+export { botonJugar };
