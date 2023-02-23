@@ -38,4 +38,42 @@ input
 }
 
 
+.container
+{
+    background-image: url(./imagenes/61132-The-Legend-Of-Zelda-Breath-Of-The-Wild-HD-Wallpaper.jpg);
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(2, 50%);
+    grid-template-areas: "logueo"
+                         ;
+    justify-content: center;
+    justify-items: center;
+    height: 500px;
 
+}
+
+.form-container
+{
+    grid-area: logueo;
+}
+
+#botonJugar
+{
+    grid-area: botonjug;
+    right: 500px;
+}
+
+#DIV1
+{
+    margin-top: 35px;
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+}
+
+#botonJugar
+{
+    border-radius: 12px;
+    width: 500px;
+    height: 200px;
+}

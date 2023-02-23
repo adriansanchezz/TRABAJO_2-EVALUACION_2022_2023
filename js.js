@@ -1,7 +1,5 @@
 'use strict';
 
-
-
 let controlador = false;
 
 let controladorCajas = false;
@@ -10,6 +8,8 @@ let cajas = [];
 
 function botonJugar()
 {
+    
+    
     console.log("FUNCIONOOOOO");
     let div1 = document.createElement("div");
     div1.id = "DIV1";
@@ -22,6 +22,16 @@ function botonJugar()
 
     tirarDado();
     boton.addEventListener("click", (event)=>{
+        let div = document.getElementById("container");
+        if(div)
+        {
+            div.remove();
+        }
+        let botonD = document.getElementById("botonDado");
+        if(botonD)
+        {
+            botonD.style.visibility = "visible"; 
+        }
         boton.style = "display: none;"
         if(controladorCajas == false)
         {
@@ -126,7 +136,10 @@ function generarTabla(posIn)
     }
     if(posIn == 99)
     {
-        alert("ENHORABUENA");
+        setTimeout(()=>{ 
+            alert("ENHORABUENA");
+        }, 500)
+        
     }
 
     
@@ -163,6 +176,7 @@ function tirarDado()
     let div2 = document.createElement("div");
     document.body.appendChild(div2);
     let botonDado = document.createElement("button");
+    botonDado.id = "botonDado";
     botonDado.style.visibility = "hidden"; 
     botonDado.textContent = "TIRAR DADO";
     div2.appendChild(botonDado);

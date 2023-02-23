@@ -9,6 +9,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebas
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics.js";
 
+
 import {firebaseConfig} from "./firebase.js";
 
 import { botonJugar } from "./js.js";
@@ -25,13 +26,29 @@ function login()
     var email = document.getElementById("email").value;
     var password = document.getElementById('password').value;
     const auth = getAuth();
-    alert(`auth: ${auth} email: ${email}   password: ${password}`)
     signInWithEmailAndPassword(auth,email, password)
     .then(function(user) {
+        console.log(user['user'].email);
         console.log("User logged in: ", user);
-        alert("User logged in: ", user)
+        
         // Redirigir al panel de usuario o mostrar un mensaje
         funcionaBoton();
+        Toastify({
+            text: "Logueado correctamente.",
+            duration: 3000,
+            destination: "https://github.com/apvarun/toastify-js",
+            newWindow: true,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "left", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+              background: "linear-gradient(to right, #00b09b, #96c93d)",
+            },
+            onClick: function(){} // Callback after click
+          }).showToast();
+
+        
     })
     .catch(function(error) {
         console.log("Error logging in: ", error);
@@ -64,55 +81,75 @@ function registro() {
             let divReg = document.getElementById("form-container");
             let emailAuth = document.getElementById("email");
             emailAuth.style.backgroundColor = "red";
-            let emailp = document.getElementById("emailp");
-            if(emailp)
-            {
-                emailp.remove();
-            }
-            let p = document.createElement("p");
-            p.id = "emailp";
-            p.textContent = "Email incorrecto."
-            document.body.appendChild(p);
+            Toastify({
+                text: "Email inválido.",
+                duration: 3000,
+                destination: "https://github.com/apvarun/toastify-js",
+                newWindow: true,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "left", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                  background: "linear-gradient(to right, #00b09b, #96c93d)",
+                },
+                onClick: function(){} // Callback after click
+              }).showToast();
         }
         if(error.code === "auth/weak-password")
         {
             let emailAuth = document.getElementById("signup-password");
             emailAuth.style.backgroundColor = "red";
-            let passp = document.getElementById("passp");
-            if(passp)
-            {
-                passp.remove();
-            }
-            let p = document.createElement("p");
-            p.id = "passp";
-            p.textContent = "La contraseña es débil."
-            document.body.appendChild(p);
+            Toastify({
+                text: "Contraseña débil.",
+                duration: 3000,
+                destination: "https://github.com/apvarun/toastify-js",
+                newWindow: true,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "left", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                  background: "linear-gradient(to right, #00b09b, #96c93d)",
+                },
+                onClick: function(){} // Callback after click
+              }).showToast();
         }
         if(error.code === "auth/email-already-in-use")
         {
             let emailAuth = document.getElementById("signup-password");
             emailAuth.style.backgroundColor = "red";
-            let existp = document.getElementById("existp");
-            if(existp)
-            {
-                existp.remove();
-            }
-            let p = document.createElement("p");
-            p.id = "existp";
-            p.textContent = "El email ya existe."
-            document.body.appendChild(p);
+            Toastify({
+                text: "Email ya en uso.",
+                duration: 3000,
+                destination: "https://github.com/apvarun/toastify-js",
+                newWindow: true,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "left", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                  background: "linear-gradient(to right, #00b09b, #96c93d)",
+                },
+                onClick: function(){} // Callback after click
+              }).showToast();
         }
         else
         {
-            let errorp = document.getElementById("errorp");
-            if(errorp)
-            {
-                errorp.remove();
-            }
-            let p = document.createElement("p");
-            p.id = "existp";
-            p.textContent = "El email ya existe."
-            document.body.appendChild(p);
+            Toastify({
+                text: "Hubo un error en la autenticación.",
+                duration: 3000,
+                destination: "https://github.com/apvarun/toastify-js",
+                newWindow: true,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "left", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                  background: "linear-gradient(to right, #00b09b, #96c93d)",
+                },
+                onClick: function(){} // Callback after click
+              }).showToast();
         }
     });
 }
