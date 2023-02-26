@@ -8,16 +8,16 @@ let cajas = [];
 
 function botonJugar()
 {
-    
-    
-    console.log("FUNCIONOOOOO");
+    let divMayor = document.createElement("div");
+    divMayor.id = "divMayor";
+    document.body.appendChild(divMayor);
     let div1 = document.createElement("div");
     div1.id = "DIV1";
     let boton = document.createElement("button");
     boton.id = "botonJugar";
     boton.textContent = "JUGAR";
     boton.disabled = true;
-    document.body.appendChild(div1);
+    divMayor.appendChild(div1);
     div1.appendChild(boton);
 
     tirarDado();
@@ -77,14 +77,17 @@ function generarTabla(posIn)
         let tr = document.createElement("tr");
         
         tr.id = i;
+
         for(let u = 0; u<10; u++)
         {
             let td = document.createElement("td");
             td.style = "background-image: url('../imagenes/eps8woq9nh9z.png'); background-size: cover;";
             
             td.id = tr.id + u;
+
             if(td.id == posIn)
             {
+                
                 td.style = "background-image: url('../imagenes/eps8woq9nh9z.png'); background-size: cover;";
                 let imagen = document.createElement("img");
                 imagen.src = "../imagenes/pj.png";
@@ -172,9 +175,10 @@ function saberCajas()
 function tirarDado()
 {
     
-    
+    let divMayor = document.getElementById("divMayor");
     let div2 = document.createElement("div");
-    document.body.appendChild(div2);
+    div2.id = "DIV2";
+    divMayor.appendChild(div2);
     let botonDado = document.createElement("button");
     botonDado.id = "botonDado";
     botonDado.style.visibility = "hidden"; 
@@ -201,10 +205,7 @@ function tirarDado()
             h1.id = "tiradaDado";
             div2.appendChild(h1);
             Casillas(resultado);
-            
         }
-        
-        
     })
 
 }

@@ -51,30 +51,89 @@ function login()
         
     })
     .catch(function(error) {
-        console.log("Error logging in: ", error);
-        alert("Error logging in: ", error)
-        // Mostrar mensaje de error
+        
+      const errorCode = error.code;
+      const errorMessage = error.message;
+  
+      if (errorCode === 'auth/wrong-password' || errorCode === 'auth/user-not-found') {
+        Toastify({
+          text: "Credenciales incorrectas",
+          duration: 3000,
+          destination: "https://github.com/apvarun/toastify-js",
+          newWindow: true,
+          close: true,
+          gravity: "top", // `top` or `bottom`
+          position: "left", // `left`, `center` or `right`
+          stopOnFocus: true, // Prevents dismissing of toast on hover
+          style: {
+            background: "linear-gradient(to right, #00b09b, #96c93d)",
+          },
+          onClick: function(){} // Callback after click
+        }).showToast();
+      }
+      if (errorCode === 'auth/network-request-failed') {
+        // No se puede establecer conexión con Firebase
+        Toastify({
+          text: "Ha ocurrido un error de red. Por favor, verifica tu conexión a Internet e intenta de nuevo.",
+          duration: 3000,
+          destination: "https://github.com/apvarun/toastify-js",
+          newWindow: true,
+          close: true,
+          gravity: "top", // `top` or `bottom`
+          position: "left", // `left`, `center` or `right`
+          stopOnFocus: true, // Prevents dismissing of toast on hover
+          style: {
+            background: "linear-gradient(to right, #00b09b, #96c93d)",
+          },
+          onClick: function(){} // Callback after click
+        }).showToast();
+        
+      } 
+      else{
+        Toastify({
+          text: "Error.",
+          duration: 3000,
+          destination: "https://github.com/apvarun/toastify-js",
+          newWindow: true,
+          close: true,
+          gravity: "top", // `top` or `bottom`
+          position: "left", // `left`, `center` or `right`
+          stopOnFocus: true, // Prevents dismissing of toast on hover
+          style: {
+            background: "linear-gradient(to right, #00b09b, #96c93d)",
+          },
+          onClick: function(){} // Callback after click
+        }).showToast();
+        }
         
     });
 }
 
 function registro() {
     console.log("REGISTER");
-  alert("REGISTER")
     var email = document.getElementById("email").value;;
     var password = document.getElementById('password').value;
     const auth = getAuth();
-    alert(`auth: ${auth} email: ${email}   password: ${password}`)
+
     createUserWithEmailAndPassword(auth,email, password)
     .then(function(user) {
-        console.log("User registered: ", user);
-        // Redirigir al panel de usuario o mostrar un mensaje
-        alert("User registered: ", user)
+      Toastify({
+        text: "Registrado correctamente.",
+        duration: 3000,
+        destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "left", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "linear-gradient(to right, #00b09b, #96c93d)",
+        },
+        onClick: function(){} // Callback after click
+      }).showToast();
     })
     .catch(function(error) {
-        console.log("Error registering: ", error);
-        // Mostar mensaje de error
-        alert("Error registering: ", error);
+        
         console.log(error.code);
         if(error.code === "auth/invalid-email")
         {
@@ -96,61 +155,68 @@ function registro() {
                 onClick: function(){} // Callback after click
               }).showToast();
         }
-        if(error.code === "auth/weak-password")
-        {
-            let emailAuth = document.getElementById("signup-password");
-            emailAuth.style.backgroundColor = "red";
-            Toastify({
-                text: "Contraseña débil.",
-                duration: 3000,
-                destination: "https://github.com/apvarun/toastify-js",
-                newWindow: true,
-                close: true,
-                gravity: "top", // `top` or `bottom`
-                position: "left", // `left`, `center` or `right`
-                stopOnFocus: true, // Prevents dismissing of toast on hover
-                style: {
-                  background: "linear-gradient(to right, #00b09b, #96c93d)",
-                },
-                onClick: function(){} // Callback after click
-              }).showToast();
-        }
-        if(error.code === "auth/email-already-in-use")
-        {
-            let emailAuth = document.getElementById("signup-password");
-            emailAuth.style.backgroundColor = "red";
-            Toastify({
-                text: "Email ya en uso.",
-                duration: 3000,
-                destination: "https://github.com/apvarun/toastify-js",
-                newWindow: true,
-                close: true,
-                gravity: "top", // `top` or `bottom`
-                position: "left", // `left`, `center` or `right`
-                stopOnFocus: true, // Prevents dismissing of toast on hover
-                style: {
-                  background: "linear-gradient(to right, #00b09b, #96c93d)",
-                },
-                onClick: function(){} // Callback after click
-              }).showToast();
-        }
         else
         {
-            Toastify({
-                text: "Hubo un error en la autenticación.",
-                duration: 3000,
-                destination: "https://github.com/apvarun/toastify-js",
-                newWindow: true,
-                close: true,
-                gravity: "top", // `top` or `bottom`
-                position: "left", // `left`, `center` or `right`
-                stopOnFocus: true, // Prevents dismissing of toast on hover
-                style: {
-                  background: "linear-gradient(to right, #00b09b, #96c93d)",
-                },
-                onClick: function(){} // Callback after click
-              }).showToast();
+          if(error.code === "auth/weak-password")
+          {
+              let emailAuth = document.getElementById("password");
+              emailAuth.style.backgroundColor = "red";
+              Toastify({
+                  text: "Contraseña débil.",
+                  duration: 3000,
+                  destination: "https://github.com/apvarun/toastify-js",
+                  newWindow: true,
+                  close: true,
+                  gravity: "top", // `top` or `bottom`
+                  position: "left", // `left`, `center` or `right`
+                  stopOnFocus: true, // Prevents dismissing of toast on hover
+                  style: {
+                    background: "linear-gradient(to right, #00b09b, #96c93d)",
+                  },
+                  onClick: function(){} // Callback after click
+                }).showToast();
+          }
+          else
+          {
+            if(error.code === "auth/email-already-in-use")
+            {
+                let emailAuth = document.getElementById("signup-password");
+                emailAuth.style.backgroundColor = "red";
+                Toastify({
+                    text: "Email ya en uso.",
+                    duration: 3000,
+                    destination: "https://github.com/apvarun/toastify-js",
+                    newWindow: true,
+                    close: true,
+                    gravity: "top", // `top` or `bottom`
+                    position: "left", // `left`, `center` or `right`
+                    stopOnFocus: true, // Prevents dismissing of toast on hover
+                    style: {
+                      background: "linear-gradient(to right, #00b09b, #96c93d)",
+                    },
+                    onClick: function(){} // Callback after click
+                  }).showToast();
+            }
+            else
+            {
+                Toastify({
+                    text: "Hubo un error en la autenticación.",
+                    duration: 3000,
+                    destination: "https://github.com/apvarun/toastify-js",
+                    newWindow: true,
+                    close: true,
+                    gravity: "top", // `top` or `bottom`
+                    position: "left", // `left`, `center` or `right`
+                    stopOnFocus: true, // Prevents dismissing of toast on hover
+                    style: {
+                      background: "linear-gradient(to right, #00b09b, #96c93d)",
+                    },
+                    onClick: function(){} // Callback after click
+                  }).showToast();
+            }
+          }
         }
+  
     });
 }
 

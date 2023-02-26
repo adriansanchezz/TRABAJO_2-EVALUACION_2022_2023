@@ -77,3 +77,23 @@ input
     width: 500px;
     height: 200px;
 }
+
+
+#divMayor
+{
+    display: grid;
+    grid-template-rows: 50%;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-areas: "div1" "div2";
+}
+
+#DIV1
+{
+    grid-area: "div1";
+}
+
+#DIV2
+{
+    grid-area: "div2";
+}
+
