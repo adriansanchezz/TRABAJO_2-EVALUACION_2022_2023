@@ -17,21 +17,24 @@ import { botonJugar } from "./js.js";
 // Inicialiar la conexión Firebase
 const app = initializeApp(firebaseConfig);
 
-// Initialize Firebase
+// Inicializar Firebase
 const analytics = getAnalytics(app);
 
+
+// Función que valida el logueo.
 function login() 
 {
-    console.log("LOGIN");
+    // Se obtiene el valor de email y contraseña.
     var email = document.getElementById("email").value;
     var password = document.getElementById('password').value;
     const auth = getAuth();
+    // Se comprueba la autenticación del usuario con esa password.
     signInWithEmailAndPassword(auth,email, password)
     .then(function(user) {
-        console.log(user['user'].email);
-        console.log("User logged in: ", user);
+        // Si funciona correctamente entra aquí y entonces se llama a "funcionaboton()" que es para que funcione el botón jugar.
+
+        // Además se invoca una "toast" de que se ha logueado correctamente.
         
-        // Redirigir al panel de usuario o mostrar un mensaje
         funcionaBoton();
         Toastify({
             text: "Logueado correctamente.",
@@ -52,6 +55,8 @@ function login()
     })
     .catch(function(error) {
         
+      // Si no funciona entonces le aparecen "toasts" con los errores detectados en cuestión.
+
       const errorCode = error.code;
       const errorMessage = error.message;
   
@@ -109,14 +114,20 @@ function login()
     });
 }
 
+// Función que valida el registro.
 function registro() {
-    console.log("REGISTER");
+    
+  // Se valida el email y la password para saber si pueden ser introducidas al firebase. 
     var email = document.getElementById("email").value;;
     var password = document.getElementById('password').value;
     const auth = getAuth();
+    const db = firebase.firestore;
+    
 
     createUserWithEmailAndPassword(auth,email, password)
     .then(function(user) {
+      
+      // Si todo funciona correctamente se le muestra un mensaje indicando que ha sido registrado satisfactoriamente.
       Toastify({
         text: "Registrado correctamente.",
         duration: 3000,
@@ -134,7 +145,7 @@ function registro() {
     })
     .catch(function(error) {
         
-        console.log(error.code);
+        // Si no funciona entonces le aparecen "toasts" con los errores detectados en cuestión.
         if(error.code === "auth/invalid-email")
         {
             let divReg = document.getElementById("form-container");
@@ -220,6 +231,7 @@ function registro() {
     });
 }
 
+// La función inicio llama al botónJugar para que pueda aparecer en modo desactivado. Y además cuando es clickado alguno de los botones (login o registro) llama a las funciones en cuestión.
 function inicio(){
     botonJugar();
     document.getElementsByClassName("btn btn-primary")[0].addEventListener("click",(e)=>{
@@ -234,10 +246,29 @@ function inicio(){
     });
 }
 
-window.onload = inicio;
-
+// Función para activar el botón Jugar.
 function funcionaBoton()
 {
     let boton = document.getElementById("botonJugar");
         boton.disabled = false;
+        puntuacion();
+}
+
+
+window.onload = inicio;
+
+function puntuacion(){
+  var db = firebase.firestore();
+
+  // Acceder a la variable
+  db.collection("puntuaciones").doc("puntuacion").get().then((doc) => {
+      if (doc.exists) {
+          var miVariable = doc.data().miVariable;
+          console.log("Valor de miVariable: ", miVariable);
+      } else {
+          console.log("No se encontró el documento");
+      }
+      }).catch((error) => {
+      console.log("Error al acceder a la variable: ", error);
+});
 }

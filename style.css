@@ -45,7 +45,7 @@ input
     grid-template-columns: 100%;
     grid-template-rows: repeat(2, 50%);
     grid-template-areas: "logueo"
-                         ;
+                         "botonJug";
     justify-content: center;
     justify-items: center;
     height: 500px;
@@ -59,8 +59,10 @@ input
 
 #botonJugar
 {
-    grid-area: botonjug;
-    right: 500px;
+    margin-left: 40%;
+    border-radius: 12px;
+    width: 500px;
+    height: 200px;
 }
 
 #DIV1
@@ -71,12 +73,6 @@ input
     justify-items: center;
 }
 
-#botonJugar
-{
-    border-radius: 12px;
-    width: 500px;
-    height: 200px;
-}
 
 
 #divMayor
