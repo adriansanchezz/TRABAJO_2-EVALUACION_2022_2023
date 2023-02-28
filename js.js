@@ -11,6 +11,8 @@ let cajas = [];
 
 let numeroTiradas = 0;
 
+let controlVolverJugar = false;
+
 // Creación de una función que se encarga de crear el botón "jugar".
 function botonJugar()
 {
@@ -28,7 +30,15 @@ function botonJugar()
     let boton = document.createElement("button");
     boton.id = "botonJugar";
     boton.textContent = "JUGAR";
-    boton.disabled = true;
+    if(controlVolverJugar == false)
+    {
+        boton.disabled = true;
+    }
+    else
+    {
+        boton.disabled = false;
+    }
+    
 
     // Se añade todo a su respectivo div o lugar correspondiente.
     divMayor.appendChild(div1);
@@ -251,6 +261,20 @@ function generarTabla(posIn)
         document.body.appendChild(divTexto);
         divTexto.appendChild(h1);
         divTexto.appendChild(h3);
+        let botonVolverJugar = document.createElement("button");
+        botonVolverJugar.textContent = "Volver a jugar";
+        divTexto.appendChild(botonVolverJugar);
+        botonVolverJugar.addEventListener("click", (event)=>{
+
+            divTexto.remove();
+
+            controlVolverJugar = true;
+
+            numeroTiradas = 0;
+
+            botonJugar();
+            
+        })
     }
 
     
