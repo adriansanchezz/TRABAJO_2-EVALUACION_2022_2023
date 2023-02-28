@@ -124,9 +124,10 @@ input
 
 #tiradaExtra
 {
+    
     grid-area: "extra";
-    width: 500px;
-    height: 100px;
+    width: 350px;
+    height: 75px;
 }
 
 
@@ -219,6 +220,30 @@ input
     50%{transform: translateZ(-150px) rotateY(-360deg) rotateX(360deg);}
     75%{transform: translateZ(-150px) rotateY(0deg) rotateX(0deg);}
     100% {transform: translateZ(-150px) rotateY(0deg) rotateX(360deg);}
+  }
+
+
+  #divTexto
+  {
+    position: absolute;
+    margin-top: 250px;
+    margin-left: 250px;
+    height: 250px;
+    width: 825px;
+    text-align: center;
+  }
+
+  #texto
+  {
+    position: relative;
+    padding: 100px;
+    bottom: 20px;
+  }
+
+  #textoTiradas
+  {
+    position: relative;
+    bottom: 100px;
   }
 
   

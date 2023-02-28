@@ -140,7 +140,9 @@ function generarTabla(posIn)
                 // Si la td.id es 99 entonces se añade la imagen tesoro encima. 
                 let imagen = document.createElement("img");
                 imagen.src = "../imagenes/tesoro.png";
+                imagen.id = "tesoro";
                 td.appendChild(imagen);
+
             }
 
             // Si la id es el mismo número que alguna de las cajas entonces se indica que ha de posicionarse encima la imagen de una caja. 
@@ -229,10 +231,26 @@ function generarTabla(posIn)
     // Si la posición inicial es 99 entonces se manda un mensaje ganador.
     if(posIn == 99)
     {
+        let imgTesoro = document.getElementById("tesoro");
+        imgTesoro.remove();
         setTimeout(()=>{ 
             alert("ENHORABUENA");
         }, 500)
-        
+        let divBorrarGanador = document.getElementById("divMayor");
+        divBorrarGanador.remove();
+
+        let divTexto = document.createElement("div");
+        divTexto.id = "divTexto";
+        divTexto.style = `background-image: url(./imagenes/ganador.png)`;
+        let h1 = document.createElement("h1");
+        h1.id = "texto";
+        h1.textContent = "El héroe ha conseguido salvar el tesoro."
+        let h3 = document.createElement("h3");
+        h3.id = "textoTiradas";
+        h3.textContent = "Tiradas: " + numeroTiradas;
+        document.body.appendChild(divTexto);
+        divTexto.appendChild(h1);
+        divTexto.appendChild(h3);
     }
 
     
@@ -241,7 +259,11 @@ function generarTabla(posIn)
     controladorCajas = true;
     
     let divDerecha = document.getElementById("DIV2");
-    divDerecha.style = `height: 275px;`;
+    if(divDerecha)
+    {
+        divDerecha.style = `height: 275px;`;
+    }
+    
 }
 
 // La función para saber la posición de las cajas.
