@@ -283,6 +283,7 @@ function tirarDado()
         
         // Invoca a la función "Dado()";
         Dado();
+        
     })
 
 }
@@ -313,6 +314,60 @@ function Dado()
             {
                 resultado = Math.floor(Math.random() * 7);
             }
+            let borrador3D = document.getElementById("espacio3D");
+            if(borrador3D)
+            {
+                borrador3D.remove();
+            }
+            let div3D = document.createElement("div");
+            div3D.id = "espacio3D";
+            div3D.className = "espacio3D";
+            div2.appendChild(div3D);
+            let cubo3D = document.createElement("div");
+            cubo3D.className = "cubo3D";
+            div3D.appendChild(cubo3D);
+            let base = document.createElement("div");
+            base.className = "base";
+            cubo3D.appendChild(base);
+            let cara1 = document.createElement("aside");
+            cara1.className = "cara cara1";
+            switch(resultado)
+            {
+                case 1: 
+                    cara1.style = `background-image: url(./imagenes/1.jpg);`;
+                    break;
+                case 2: 
+                    cara1.style = `background-image: url(./imagenes/2.jpg);`;
+                    break;
+                case 3: 
+                    cara1.style = `background-image: url(./imagenes/3.jpg);`;
+                    break;
+                case 4: 
+                    cara1.style = `background-image: url(./imagenes/4.png);`;
+                    break;
+                case 5: 
+                    cara1.style = `background-image: url(./imagenes/5.jpg);`;
+                    break;
+                case 6: 
+                    cara1.style = `background-image: url(./imagenes/6.jpg);`;
+                    break;
+            }
+            cubo3D.appendChild(cara1);
+            let cara2 = document.createElement("aside");
+            cara2.className = "cara cara2";
+            cubo3D.appendChild(cara2);
+            let cara3 = document.createElement("aside");
+            cara3.className = "cara cara3";
+            cubo3D.appendChild(cara3);
+            let cara4 = document.createElement("aside");
+            cara4.className = "cara cara4";
+            cubo3D.appendChild(cara4);
+            let cara5 = document.createElement("aside");
+            cara5.className = "cara cara5";
+            cubo3D.appendChild(cara5);
+            let cara6 = document.createElement("aside");
+            cara6.className = "cara cara6";
+            cubo3D.appendChild(cara6);
             let h1 = document.createElement("h1");
             h1.textContent = resultado;
             h1.id = "tiradaDado";
@@ -321,6 +376,7 @@ function Dado()
             // Se le pasa el resultado a la función "Casillas(resultado)".
             Casillas(resultado);
         }
+    
 }
 
 
