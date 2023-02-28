@@ -59,7 +59,7 @@ input
 
 #botonJugar
 {
-    margin-left: 40%;
+    margin-left: 37%;
     border-radius: 12px;
     width: 500px;
     height: 200px;
@@ -91,11 +91,48 @@ input
 #DIV2
 {
     grid-area: "div2";
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(4, 100%);
+    grid-template-areas: "dado"
+                         "cantidad"
+                         "extra"
+                         "tirar";
+    justify-content: center;
+    justify-items: center;
+    
+}
+
+#tiradasRealizadas
+{
+    background-color:darkslategrey;
+    grid-area: "cantidad";
+    text-align: center;
+    margin-top: 50px;
+    width: 1000px;
+    height: 50px;
+    
+    color:rgb(255, 196, 0);
+}
+
+#botonDado
+{
+    grid-area: "tirar";
+    width: 500px;
+    height: 100px;
+}
+
+#tiradaExtra
+{
+    grid-area: "extra";
+    width: 500px;
+    height: 100px;
 }
 
 
 
 .espacio3D {
+    grid-area: "dado";
     width: 300px;
     height: 300px;
     margin: 3em auto 0 auto;
@@ -103,7 +140,10 @@ input
     perspective-origin: center -50%;
     perspective: 500px;
     transform: scale(0.75);
+    
   }
+
+
   
   .cubo3D {
     width: 100%;
@@ -129,16 +169,16 @@ input
     width: 298px;
     height: 298px;
     
-    border: 1px solid blue;
+    border: 5px solid rgb(15, 15, 15);
     color: #08f;
     font-size: 3em;
     text-align: center;
     line-height: 298px;
-    box-shadow: 0px 0px 5px blue;
+    box-shadow: 0px 0px 5px black;
   }
   
   .cara1 {
-    
+      
       background-size: cover;
       transform: translateZ(150px);
   }
@@ -156,7 +196,7 @@ input
   }
   
   .cara4 {
-      background-image: url(/imagenes/4.png);
+      background-image: url(/imagenes/4.jpg);
       background-size: cover;
       transform: rotateY(90deg) translateZ(150px);
   }

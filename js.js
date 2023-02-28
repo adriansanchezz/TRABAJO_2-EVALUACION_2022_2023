@@ -9,9 +9,12 @@ let controladorCajas = false;
 // Array de cajas para poder guardar su posición. 
 let cajas = [];
 
+let numeroTiradas = 0;
+
 // Creación de una función que se encarga de crear el botón "jugar".
 function botonJugar()
 {
+    
     // Creación del div que contendrá otros dos div llamado "divMayor".
     let divMayor = document.createElement("div");
     divMayor.id = "divMayor";
@@ -237,7 +240,8 @@ function generarTabla(posIn)
     // Y controladorCajas pasa a ser true cuando todo acaba, porque así la función saberCajas se activará cuando ya se haya activado esta una vez.
     controladorCajas = true;
     
-
+    let divDerecha = document.getElementById("DIV2");
+    divDerecha.style = `height: 275px;`;
 }
 
 // La función para saber la posición de las cajas.
@@ -301,6 +305,7 @@ function Dado()
             // Controlador entonces pasa a ser true, para que el usuario ya no pueda entrar a través del botón.
             controlador = true;
 
+            numeroTiradas++;
             // Se obtiene el h1 del resultado del dado, y si existe se quita.
             let comprobarDado = document.getElementById("tiradaDado");
             if(comprobarDado)
@@ -322,7 +327,8 @@ function Dado()
             let div3D = document.createElement("div");
             div3D.id = "espacio3D";
             div3D.className = "espacio3D";
-            div2.appendChild(div3D);
+            let botonDado = document.getElementById("botonDado");
+            botonDado.before(div3D);
             let cubo3D = document.createElement("div");
             cubo3D.className = "cubo3D";
             div3D.appendChild(cubo3D);
@@ -343,7 +349,7 @@ function Dado()
                     cara1.style = `background-image: url(./imagenes/3.jpg);`;
                     break;
                 case 4: 
-                    cara1.style = `background-image: url(./imagenes/4.png);`;
+                    cara1.style = `background-image: url(./imagenes/4.jpg);`;
                     break;
                 case 5: 
                     cara1.style = `background-image: url(./imagenes/5.jpg);`;
@@ -368,11 +374,19 @@ function Dado()
             let cara6 = document.createElement("aside");
             cara6.className = "cara cara6";
             cubo3D.appendChild(cara6);
-            let h1 = document.createElement("h1");
-            h1.textContent = resultado;
-            h1.id = "tiradaDado";
-            div2.appendChild(h1);
-
+            
+            let h2ant = document.getElementById("tiradasRealizadas");
+            if(h2ant)
+            {
+                h2ant.remove();
+            }
+            let divTiradas = document.createElement("div");
+            divTiradas.id = "tiradasRealizadas";
+            let h2 = document.createElement("h2");
+            
+            h2.textContent = "Tiradas realizadas: " + numeroTiradas;
+            botonDado.before(divTiradas);
+            divTiradas.appendChild(h2);
             // Se le pasa el resultado a la función "Casillas(resultado)".
             Casillas(resultado);
         }

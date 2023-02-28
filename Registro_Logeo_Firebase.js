@@ -251,24 +251,9 @@ function funcionaBoton()
 {
     let boton = document.getElementById("botonJugar");
         boton.disabled = false;
-        puntuacion();
+        
 }
 
 
 window.onload = inicio;
 
-function puntuacion(){
-  var db = firebase.firestore();
-
-  // Acceder a la variable
-  db.collection("puntuaciones").doc("puntuacion").get().then((doc) => {
-      if (doc.exists) {
-          var miVariable = doc.data().miVariable;
-          console.log("Valor de miVariable: ", miVariable);
-      } else {
-          console.log("No se encontró el documento");
-      }
-      }).catch((error) => {
-      console.log("Error al acceder a la variable: ", error);
-});
-}
