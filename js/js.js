@@ -250,7 +250,7 @@ function generarTabla(posIn)
 
         let divTexto = document.createElement("div");
         divTexto.id = "divTexto";
-        divTexto.style = `background-image: url(./imagenes/ganador.png)`;
+        divTexto.style = `background-image: url(../imagenes/ganador.png)`;
         let h1 = document.createElement("h1");
         h1.id = "texto";
         h1.textContent = "El heroe ha conseguido salvar el tesoro."
@@ -386,22 +386,22 @@ function Dado()
             switch(resultado)
             {
                 case 1: 
-                    cara1.style = `background-image: url(./imagenes/1.jpg);`;
+                    cara1.style = `background-image: url(../imagenes/1.jpg);`;
                     break;
                 case 2: 
-                    cara1.style = `background-image: url(./imagenes/2.jpg);`;
+                    cara1.style = `background-image: url(../imagenes/2.jpg);`;
                     break;
                 case 3: 
-                    cara1.style = `background-image: url(./imagenes/3.jpg);`;
+                    cara1.style = `background-image: url(../imagenes/3.jpg);`;
                     break;
                 case 4: 
-                    cara1.style = `background-image: url(./imagenes/4.jpg);`;
+                    cara1.style = `background-image: url(../imagenes/4.jpg);`;
                     break;
                 case 5: 
-                    cara1.style = `background-image: url(./imagenes/5.jpg);`;
+                    cara1.style = `background-image: url(../imagenes/5.jpg);`;
                     break;
                 case 6: 
-                    cara1.style = `background-image: url(./imagenes/6.jpg);`;
+                    cara1.style = `background-image: url(../imagenes/6.jpg);`;
                     break;
             }
             cubo3D.appendChild(cara1);

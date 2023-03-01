@@ -55,7 +55,7 @@ input
 .container
 {
     font-size:x-large;
-    background-image: url(./imagenes/61132-The-Legend-Of-Zelda-Breath-Of-The-Wild-HD-Wallpaper.jpg);
+    background-image: url(../imagenes/61132-The-Legend-Of-Zelda-Breath-Of-The-Wild-HD-Wallpaper.jpg);
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: repeat(2, 50%);
@@ -204,31 +204,31 @@ input
   }
   
   .cara2 {
-      background-image: url(./imagenes/2.jpg);
+      background-image: url(../imagenes/2.jpg);
       background-size: cover;
       transform: rotateY(180deg) translateZ(150px);
   }
   
   .cara3 {
-      background-image: url(/imagenes/3.jpg);
+      background-image: url(../imagenes/3.jpg);
       background-size: cover;
       transform: rotateY(-90deg) translateZ(150px);
   }
   
   .cara4 {
-      background-image: url(/imagenes/4.jpg);
+      background-image: url(../imagenes/4.jpg);
       background-size: cover;
       transform: rotateY(90deg) translateZ(150px);
   }
   
   .cara5 {
-      background-image: url(/imagenes/5.jpg);
+      background-image: url(../imagenes/5.jpg);
       background-size: cover;
       transform: rotateX(-90deg) translateZ(150px);
   }
   
   .cara6 { 
-      background-image: url(/imagenes/6.jpg);
+      background-image: url(../imagenes/6.jpg);
       background-size: cover;
       transform: rotateX(90deg) translateZ(150px);
   }
