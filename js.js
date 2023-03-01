@@ -239,6 +239,7 @@ function generarTabla(posIn)
     }
     
     // Si la posición inicial es 99 entonces se manda un mensaje ganador.
+    // Y se muestra una pantalla en la que se le indica cuantas tiradas ha realizado y un botón de volver a jugar.
     if(posIn == 99)
     {
         let imgTesoro = document.getElementById("tesoro");
