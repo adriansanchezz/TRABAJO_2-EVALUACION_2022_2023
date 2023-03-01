@@ -152,7 +152,7 @@ input
 
 
 
-.espacio3D {
+.Space3D {
     grid-area: "dado";
     width: 300px;
     height: 300px;
@@ -161,18 +161,17 @@ input
     perspective-origin: center -50%;
     perspective: 500px;
     transform: scale(0.75);
-    
   }
 
 
   
-  .cubo3D {
+  .dice {
     width: 100%;
     height: 100%;
     position: absolute;
     transform-style: preserve-3d;
     transform: translateZ(-150px);
-    animation: girar 3000ms;
+    animation: girar 500ms;
   }
   .dado-animado {
     animation-name: girar;

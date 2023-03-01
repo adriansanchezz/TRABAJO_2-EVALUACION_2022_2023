@@ -365,18 +365,18 @@ function Dado()
             {
                 resultado = Math.floor(Math.random() * 7);
             }
-            let borrador3D = document.getElementById("espacio3D");
+            let borrador3D = document.getElementById("Space3D");
             if(borrador3D)
             {
                 borrador3D.remove();
             }
             let div3D = document.createElement("div");
-            div3D.id = "espacio3D";
-            div3D.className = "espacio3D";
+            div3D.id = "Space3D";
+            div3D.className = "Space3D";
             let botonDado = document.getElementById("botonDado");
             botonDado.before(div3D);
             let cubo3D = document.createElement("div");
-            cubo3D.className = "cubo3D";
+            cubo3D.className = "dice";
             div3D.appendChild(cubo3D);
             let base = document.createElement("div");
             base.className = "base";
