@@ -243,9 +243,7 @@ function generarTabla(posIn)
     {
         let imgTesoro = document.getElementById("tesoro");
         imgTesoro.remove();
-        setTimeout(()=>{ 
-            alert("ENHORABUENA");
-        }, 500)
+        
         let divBorrarGanador = document.getElementById("divMayor");
         divBorrarGanador.remove();
 
