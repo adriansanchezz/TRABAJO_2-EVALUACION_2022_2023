@@ -475,7 +475,7 @@ function Casillas(resultado)
                 {
                     casilla.style = "background-color: red;"
                     casilla.addEventListener("click", (event)=>{
-                        console.log(casilla.id);
+                        
                         generarTabla(casilla.id);
                         controlador = false;
 
@@ -488,7 +488,7 @@ function Casillas(resultado)
                 {
                     casilla2.style = "background-color: red;"
                     casilla2.addEventListener("click", (event)=>{
-                        console.log(casilla2.id);
+                        
                         generarTabla(casilla2.id);
                         controlador = false;
 
@@ -501,7 +501,7 @@ function Casillas(resultado)
                 {
                     casilla3.style = "background-color: red;"
                     casilla3.addEventListener("click", (event)=>{
-                        console.log(casilla3.id);
+                        
                         generarTabla(casilla3.id);
                         controlador = false;
 
@@ -514,7 +514,7 @@ function Casillas(resultado)
                 {
                     casilla4.style = "background-color: red;"
                     casilla4.addEventListener("click", (event)=>{
-                        console.log(casilla4.id);
+                        
                         generarTabla(casilla4.id);
                         controlador = false;
 
