@@ -383,27 +383,7 @@ function Dado()
             cubo3D.appendChild(base);
             let cara1 = document.createElement("aside");
             cara1.className = "cara cara1";
-            switch(resultado)
-            {
-                case 1: 
-                    cara1.style = `background-image: url(../imagenes/1.jpg);`;
-                    break;
-                case 2: 
-                    cara1.style = `background-image: url(../imagenes/2.jpg);`;
-                    break;
-                case 3: 
-                    cara1.style = `background-image: url(../imagenes/3.jpg);`;
-                    break;
-                case 4: 
-                    cara1.style = `background-image: url(../imagenes/4.jpg);`;
-                    break;
-                case 5: 
-                    cara1.style = `background-image: url(../imagenes/5.jpg);`;
-                    break;
-                case 6: 
-                    cara1.style = `background-image: url(../imagenes/6.jpg);`;
-                    break;
-            }
+            
             cubo3D.appendChild(cara1);
             let cara2 = document.createElement("aside");
             cara2.className = "cara cara2";
@@ -420,6 +400,57 @@ function Dado()
             let cara6 = document.createElement("aside");
             cara6.className = "cara cara6";
             cubo3D.appendChild(cara6);
+            switch(resultado)
+            {
+                case 1: 
+                    cara1.style = `background-image: url(../imagenes/1.jpg);`;
+                    cara2.style = `background-image: url(../imagenes/6.jpg);`;
+                    cara3.style = `background-image: url(../imagenes/3.jpg);`;
+                    cara4.style = `background-image: url(../imagenes/4.jpg);`;
+                    cara5.style = `background-image: url(../imagenes/5.jpg);`;
+                    cara6.style = `background-image: url(../imagenes/2.jpg);`;
+                    break;
+                case 2: 
+                    cara1.style = `background-image: url(../imagenes/2.jpg);`;
+                    cara2.style = `background-image: url(../imagenes/1.jpg);`;
+                    cara3.style = `background-image: url(../imagenes/6.jpg);`;
+                    cara4.style = `background-image: url(../imagenes/4.jpg);`;
+                    cara5.style = `background-image: url(../imagenes/5.jpg);`;
+                    cara6.style = `background-image: url(../imagenes/3.jpg);`;
+                    break;
+                case 3: 
+                    cara1.style = `background-image: url(../imagenes/3.jpg);`;
+                    cara2.style = `background-image: url(../imagenes/2.jpg);`;
+                    cara3.style = `background-image: url(../imagenes/1.jpg);`;
+                    cara4.style = `background-image: url(../imagenes/6.jpg);`;
+                    cara5.style = `background-image: url(../imagenes/5.jpg);`;
+                    cara6.style = `background-image: url(../imagenes/4.jpg);`;
+                    break;
+                case 4: 
+                    cara1.style = `background-image: url(../imagenes/4.jpg);`;
+                    cara2.style = `background-image: url(../imagenes/2.jpg);`;
+                    cara3.style = `background-image: url(../imagenes/3.jpg);`;
+                    cara4.style = `background-image: url(../imagenes/1.jpg);`;
+                    cara5.style = `background-image: url(../imagenes/6.jpg);`;
+                    cara6.style = `background-image: url(../imagenes/5.jpg);`;
+                    break;
+                case 5: 
+                    cara1.style = `background-image: url(../imagenes/5.jpg);`;
+                    cara2.style = `background-image: url(../imagenes/2.jpg);`;
+                    cara3.style = `background-image: url(../imagenes/3.jpg);`;
+                    cara4.style = `background-image: url(../imagenes/4.jpg);`;
+                    cara5.style = `background-image: url(../imagenes/1.jpg);`;
+                    cara6.style = `background-image: url(../imagenes/6.jpg);`;
+                    break;
+                case 6: 
+                    cara1.style = `background-image: url(../imagenes/6.jpg);`;
+                    cara2.style = `background-image: url(../imagenes/2.jpg);`;
+                    cara3.style = `background-image: url(../imagenes/3.jpg);`;
+                    cara4.style = `background-image: url(../imagenes/4.jpg);`;
+                    cara5.style = `background-image: url(../imagenes/1.jpg);`;
+                    cara6.style = `background-image: url(../imagenes/5.jpg);`;
+                    break;
+            }
             
             let h2ant = document.getElementById("tiradasRealizadas");
             if(h2ant)
