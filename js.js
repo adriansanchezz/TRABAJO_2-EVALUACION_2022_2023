@@ -254,7 +254,7 @@ function generarTabla(posIn)
         divTexto.style = `background-image: url(./imagenes/ganador.png)`;
         let h1 = document.createElement("h1");
         h1.id = "texto";
-        h1.textContent = "El héroe ha conseguido salvar el tesoro."
+        h1.textContent = "El heroe ha conseguido salvar el tesoro."
         let h3 = document.createElement("h3");
         h3.id = "textoTiradas";
         h3.textContent = "Tiradas: " + numeroTiradas;
@@ -262,6 +262,7 @@ function generarTabla(posIn)
         divTexto.appendChild(h1);
         divTexto.appendChild(h3);
         let botonVolverJugar = document.createElement("button");
+        botonVolverJugar.id  = "botonVolverJugar";
         botonVolverJugar.textContent = "Volver a jugar";
         divTexto.appendChild(botonVolverJugar);
         botonVolverJugar.addEventListener("click", (event)=>{

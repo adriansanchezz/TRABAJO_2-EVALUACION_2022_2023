@@ -121,8 +121,6 @@ function registro() {
     var email = document.getElementById("email").value;;
     var password = document.getElementById('password').value;
     const auth = getAuth();
-    const db = firebase.firestore;
-    
 
     createUserWithEmailAndPassword(auth,email, password)
     .then(function(user) {
@@ -149,10 +147,9 @@ function registro() {
         if(error.code === "auth/invalid-email")
         {
             let divReg = document.getElementById("form-container");
-            let emailAuth = document.getElementById("email");
-            emailAuth.style.backgroundColor = "red";
+
             Toastify({
-                text: "Email inválido.",
+                text: "Email invalido.",
                 duration: 3000,
                 destination: "https://github.com/apvarun/toastify-js",
                 newWindow: true,
